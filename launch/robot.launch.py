@@ -17,7 +17,7 @@ def generate_launch_description():
     rviz = LaunchConfiguration('rviz')
 
     # Path to default world 
-    world_path = os.path.join(get_package_share_directory(package_name),'worlds', 'obstacles.world')
+    world_path = os.path.join(get_package_share_directory(package_name),'worlds', 'track.world')
 
     # Launch Arguments
     declare_world = DeclareLaunchArgument(
@@ -56,7 +56,8 @@ def generate_launch_description():
                         executable='create',
                         arguments=['-topic', 'robot_description',
                                    '-name', 'diff_bot',
-                                   '-z', '0.2'],
+                                   '-z', '3',
+                                   ],
                         output='screen'
     )
 
