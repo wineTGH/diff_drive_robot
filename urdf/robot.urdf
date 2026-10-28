@@ -187,6 +187,17 @@
         </collision>
     </link>
 
+    <!-- Camera optical frame for ROS image processing -->
+    <joint name="camera_optical_joint" type="fixed">
+        <parent link="camera_frame"/>
+        <child link="camera_optical_frame"/>
+        <origin
+            xyz="0 0 0"
+            rpy="-1.57079632679 0 -1.57079632679"/>
+    </joint>
+
+    <link name="camera_optical_frame"/>
+
     <!-- IMU Sensor -->
     <joint name="imu_joint" type="fixed">
         <origin xyz="0 0 0" rpy="0 0 0" />
