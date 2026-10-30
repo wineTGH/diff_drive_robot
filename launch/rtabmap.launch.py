@@ -37,14 +37,14 @@ def generate_launch_description():
     rtabmap_viz = LaunchConfiguration('rtabmap_viz')
 
     icp_parameters={
-          'odom_frame_id':'icp_odom',
-          'guess_frame_id':'odom'
+        #   'odom_frame_id':'icp_odom',
+        #   'guess_frame_id':'odom'
     }
 
     rtabmap_parameters={
           'subscribe_rgbd':True,
           'subscribe_scan':True,
-          'use_action_for_goal':True,
+          'use_action_for_goal':False,
           'odom_sensor_sync': True,
           # RTAB-Map's parameters should be strings:
           'Mem/NotLinkedNodesKept':'false'
@@ -62,7 +62,7 @@ def generate_launch_description():
     }
 
     remappings=[
-          ('odom', 'icp_odom'),
+        #   ('odom', 'icp_odom'),
           ('rgb/image', '/camera/image'),
           ('rgb/camera_info', '/camera/camera_info'),
           ('depth/image', '/camera/depth_image')]
