@@ -1,0 +1,25 @@
+/yolo/yolo_node:
+  ros__parameters:
+    plugins: ["detection", "detection3d", "debug"]
+    cameras: ["cam0"]
+    cam0:
+      rgb_topic: /camera/camera/color/image_raw
+      depth_topic: /camera/camera/aligned_depth_to_color/image_raw # optional pair, set together
+      depth_info_topic: /camera/camera/aligned_depth_to_color/camera_info
+      image_reliability: 1
+      depth_reliability: 1
+    detection:
+      plugin: yolo_ros/DetectionPlugin
+      cameras: ["cam0"]
+      model_repo: unileon-robotics/YOLO26-ONNX
+      model_filename: yolo26s.onnx
+      threshold: 0.7
+      iou: 0.45
+    detection3d:
+      plugin: yolo_ros/Detect3DPlugin
+      cameras: ["cam0"]
+      target_frame: camera_link
+    debug:
+      plugin: yolo_ros/DebugPlugin
+      cameras: ["cam0"]
+      marker_lifetime: 0.5
